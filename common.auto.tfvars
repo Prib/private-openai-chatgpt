@@ -9,7 +9,7 @@ location            = "uksouth"
 
 ### OpenAI Service Module Inputs ###
 kv_config = {
-  name = "njpopenaikv2159"
+  name = "njpopenaikv2160"
   sku  = "standard"
 }
 keyvault_firewall_default_action             = "Deny"
@@ -19,8 +19,8 @@ keyvault_firewall_virtual_network_subnet_ids = []
 
 ### Create OpenAI Service ###
 create_openai_service                     = true
-openai_account_name                       = "njpopenaiacc2159"
-openai_custom_subdomain_name              = "njpopenaiacc2159" #translates to "https://openaiacc2159.openai.azure.com/"
+openai_account_name                       = "njpopenaiacc2160"
+openai_custom_subdomain_name              = "njpopenaiacc2160" #translates to "https://openaiacc2160.openai.azure.com/"
 openai_sku_name                           = "S0"
 openai_local_auth_enabled                 = true
 openai_outbound_network_access_restricted = false
@@ -55,27 +55,27 @@ model_deployment = [
     model_version  = "0613"
     scale_type     = "Standard"
     scale_capacity = 34 # 34K == Roughly 204 RPM (Requests per minute)
-  },
-  {
-    deployment_id  = "gpt432k" ## latest model
-    model_name     = "gpt-4-32k"
-    model_format   = "OpenAI"
-    model_version  = "0613"
-    scale_type     = "Standard"
-    scale_capacity = 26 # 34K == Roughly 204 RPM (Requests per minute)
+  # },
+  # {
+  #   deployment_id  = "gpt432k" ## latest model
+  #   model_name     = "gpt-4-32k"
+  #   model_format   = "OpenAI"
+  #   model_version  = "0613"
+  #   scale_type     = "Standard"
+  #   scale_capacity = 26 # 34K == Roughly 204 RPM (Requests per minute)
   }
 ]
 
 ### log analytics workspace for container apps ###
-laws_name              = "njpopenailaws2159"
+laws_name              = "njpopenailaws2160"
 laws_sku               = "PerGB2018"
 laws_retention_in_days = 30
 
 ### Container App Enviornment ###
-cae_name = "njpopenaicae2159"
+cae_name = "njpopenaicae2160"
 
 ### Container App ###
-ca_name          = "njpopenaica2159"
+ca_name          = "njpopenaica2160"
 ca_revision_mode = "Single"
 ca_identity = {
   type = "SystemAssigned"
@@ -114,11 +114,11 @@ ca_container_config = {
     },
     {
       name  = "AZURE_DEPLOYMENT_ID" #see model_deployment variable (deployment_id)
-      value = "gpt432k"
+      value = "gpt35turbo16k"
     },
     {
       name  = "DEFAULT_MODEL" #see model_deployment variable (model_name)
-      value = "gpt-4-32k"
+      value = "gpt-35-turbo-16k"
     }
   ]
 }
