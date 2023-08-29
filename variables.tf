@@ -216,7 +216,9 @@ variable "ca_identity" {
     type         = string
     identity_ids = optional(list(string))
   })
-  default     = null
+  default     = {
+    type = "SystemAssigned"
+  }
   description = <<-DESCRIPTION
     type = object({
       type         = (Required) The type of the Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
@@ -342,3 +344,4 @@ variable "create_front_door_cdn" {
   type        = bool
   default     = false
 }
+

@@ -1,3 +1,8 @@
+locals {
+    key_vault_firewall_allow_list = concat([local.build_agent_ip], var.keyvault_firewall_allowed_ips)
+}
+
+
 module "private-chatgpt-openai" {
   source  = "Pwd9000-ML/openai-private-chatgpt/azurerm"
   version = ">= 1.1.0"
@@ -11,7 +16,7 @@ module "private-chatgpt-openai" {
   keyvault_resource_group_name                 = azurerm_resource_group.rg.name
   keyvault_firewall_default_action             = var.keyvault_firewall_default_action
   keyvault_firewall_bypass                     = var.keyvault_firewall_bypass
-  keyvault_firewall_allowed_ips                = var.keyvault_firewall_allowed_ips
+  keyvault_firewall_allowed_ips                = local.key_vault_firewall_allow_list
   keyvault_firewall_virtual_network_subnet_ids = var.keyvault_firewall_virtual_network_subnet_ids
 
   #Create OpenAI Service?
