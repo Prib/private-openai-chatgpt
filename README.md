@@ -4,9 +4,6 @@
 
 Deploys a privately hosted instance of ChatBot/ChatGPT on Azure OpenAI only. (No AFD + WAF + DNS zone). See Terraform '['openai-private-chatgpt' module](https://registry.terraform.io/modules/Pwd9000-ML/openai-private-chatgpt/azurerm/latest) for more details.
 
-## Resources
-Uses the Terraform ['openai-private-chatgpt' module](https://registry.terraform.io/modules/Pwd9000-ML/openai-private-chatgpt/azurerm/latest)
-
 ## Modules
 
 | Name | Source | Version |
